@@ -62,13 +62,13 @@ public class PointTest {
     }
 
     @Test
-    public void when1to2then3() {
+    public void when123to575then6point7() {
         double expected = 6.7;
         int x1 = 1;
         int y1 = 2;
+        int z1 = 3;
         int x2 = 5;
         int y2 = 7;
-        int z1 = 3;
         int z2 = 5;
         Point testPoint3 = new Point(x1, y1, z1);
         Point testPoint4 = new Point(x2, y2, z2);
