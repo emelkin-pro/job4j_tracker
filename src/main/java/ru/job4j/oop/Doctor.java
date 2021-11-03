@@ -22,5 +22,4 @@ public class Doctor extends Profession{
     public boolean canHealPeople (){
         return true;
     }
-
 }
