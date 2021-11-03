@@ -23,4 +23,5 @@ public class Doctor extends Profession{
         return true;
     }
 
+
 }
