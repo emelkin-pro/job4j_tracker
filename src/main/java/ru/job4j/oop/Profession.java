@@ -31,4 +31,14 @@ public class Profession {
     public String setBirthday(){
         return birthday;
     }
+
+    public Profession(String name, String surname,String education,String birthday) {
+        this.name = name;
+        this.surname = surname;
+        this.education = education;
+        this.birthday = birthday;
+    }
+
+    public Profession() {
+    }
 }
