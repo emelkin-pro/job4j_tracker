@@ -23,8 +23,4 @@ public class Doctor extends Profession{
         return true;
     }
 
-    public Doctor (){
-        super(String name, String surname,String education,String birthday, String numberOfDoctorLicense);
-        this.numberOfDoctorLicense = numberOfDoctorLicense;
-    }
 }
