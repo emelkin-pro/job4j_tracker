@@ -22,4 +22,8 @@ public class Doctor extends Profession{
     public boolean canHealPeople (){
         return true;
     }
+    public Doctor(String name, String surname,String education,String birthday,String numberOfDoctorLicense){
+        super(name, surname, education, birthday);
+        this.numberOfDoctorLicense = numberOfDoctorLicense;
+    }
 }

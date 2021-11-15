@@ -27,4 +27,9 @@ public class Engineer extends Profession {
     public boolean repairPC (boolean knowLinux, boolean knowHowToRepairPrinter){
         return true;
     }
+
+    public Engineer(String name, String surname,String education,String birthday,boolean isKnowHowToRepairPrinter){
+        super(name, surname, education, birthday);
+        this.isKnowHowToRepairPrinter = isKnowHowToRepairPrinter;
+    }
 }
