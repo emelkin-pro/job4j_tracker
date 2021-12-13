@@ -1,15 +1,15 @@
 package ru.job4j.encapsulation;
 
 public class Config {
-    private String name; //4
-    private int position; // 1
-    private String[] properties; // 2
+    private String name;
+    private int position;
+    private String[] properties;
 
-    public void Config(String name) { // тут же , вроде , void Должен быть, метод же ничего не возвращает, но почем IDEA не ругалась ?)
+    public Config(String name) {
         this.name = name;
     }
 
-    public void print() { // 3
+    public void print() {
         System.out.println(position);
     }
 
