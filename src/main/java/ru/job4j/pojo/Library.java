@@ -12,20 +12,21 @@ public class Library {
         books[1] = book2;
         books[2] = book3;
         books[3] = book4;
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getName() + " - " + books[i].getCountOfPages());
+
+        for (Book bookFromBooks : books) {
+            System.out.println(bookFromBooks.getName() + " - " + bookFromBooks.getCountOfPages());
         }
+
         System.out.println("replace Clean code with Harry Potter ");
         Book bookReplacer = books[3];
         books[3] = books[0];
         books[0] = bookReplacer;
 
-        for (int i = 0; i < books.length; i++) {
-            if (books[i].getName().equals("Clean code")) {
-                System.out.println(books[i].getName() + " - " + books[i].getCountOfPages());
+        for (Book bookFromBooks : books) {
+            if ("Clean code".equals(bookFromBooks.getName())) {
+                System.out.println(bookFromBooks.getName() + " - " + bookFromBooks.getCountOfPages());
             }
         }
-
 
     }
 }
