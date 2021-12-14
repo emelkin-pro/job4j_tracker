@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 
 public class Item {
     private int id;
+    private int oldID;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
@@ -40,5 +41,13 @@ public class Item {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    public int getOldID() {
+        return oldID;
+    }
+
+    public void setOldID(int oldID) {
+        this.oldID = oldID;
     }
 }
