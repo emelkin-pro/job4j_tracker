@@ -61,7 +61,8 @@ public class Tracker {
         boolean deleted = index != -1;
         if (deleted) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size-- - 1] = null;
+            items[size - 1] = null;
+            size--;
         }
         return deleted;
     }
