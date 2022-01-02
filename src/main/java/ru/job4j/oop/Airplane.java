@@ -1,12 +1,13 @@
 package ru.job4j.oop;
 
-public class Airplane implements Vehicle{
+public class Airplane implements Vehicle {
     private String name;
 
-    public void move(){
+    public void move() {
         System.out.println("Летит в небе");
     }
-    public void refuel(){
+
+    public void refuel() {
         System.out.println("Заправляется самолетным топлевом");
     }
 
