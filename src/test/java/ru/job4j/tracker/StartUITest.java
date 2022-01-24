@@ -29,4 +29,15 @@ public class StartUITest {
         Item edited = tracker.findById(item.getId());
         assertThat(edited.getName(), is("edited item"));
     }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answer = {String.valueOf(item.getId())};
+        StartUI.deleteItem(new StubInput(answer), tracker);
+        Item deleted = tracker.findById(item.getId());
+        assertNull(deleted);
+    }
 }
