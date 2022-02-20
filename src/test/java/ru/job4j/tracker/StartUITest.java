@@ -6,23 +6,19 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
+
     @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item2 = tracker.add(new Item("kek"));
-        Item item = tracker.add(new Item("Replaced item"));
-        int itemID = item.getId();
-        int item2ID = item2.getId();
-        String replacedName = "New item name";
+    public void whenCreateItem() {
         Input in = new StubInput(
-                new String[] {"0" , replacedName, "1"}
+                new String[] {"0", "Item name", "1"}
         );
+        Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ReplaceAction(),
+                new CreateAction(),
                 new ExitAction()
         };
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+        assertThat(tracker.findAll()[0].getName(), is("Item name"));
     }
 
     @Test
