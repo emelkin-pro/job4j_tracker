@@ -28,6 +28,7 @@ public class StartUI {
                 new EditAction(),
                 new FindByIDActions(),
                 new FindByNameAction(),
+                new ReplaceAction(),
                 new DeleteAction(),
                 new ExitAction()
         };
