@@ -10,6 +10,5 @@ public class FactTest {
     public void whenFactLessThen0() {
         Fact fact = new Fact();
         int rsl = fact.calc(-1);
-        assertThat(rsl, is(1));
     }
 }
