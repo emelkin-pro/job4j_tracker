@@ -25,14 +25,12 @@ public class UserStore {
         User user = null;
         try {
             user = findUser(users, "Petr Arsentev");
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
             if (user != null && validate(user)) {
                 System.out.println("This user has an access");
             }
-        } catch (UserInvalidException e) {
+        }catch (UserInvalidException e) {
+            e.printStackTrace();
+        }catch (UserNotFoundException e) {
             e.printStackTrace();
         }
     }
