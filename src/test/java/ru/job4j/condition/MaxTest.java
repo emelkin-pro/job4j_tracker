@@ -1,7 +1,8 @@
 package ru.job4j.condition;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 
 public class MaxTest {
     @Test
@@ -10,7 +11,7 @@ public class MaxTest {
         int right = 2;
         int result = Max.max(left, right);
         int expected = 2;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -19,7 +20,7 @@ public class MaxTest {
         int right = 2;
         int result = Max.max(left, right);
         int expected = 3;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -28,7 +29,7 @@ public class MaxTest {
         int right = 4;
         int result = Max.max(left, right);
         int expected = 4;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -38,7 +39,7 @@ public class MaxTest {
         int third = 5;
         int result = Max.max(first, second, third);
         int expected = 5;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -48,7 +49,7 @@ public class MaxTest {
         int third = 3;
         int result = Max.max(first, second, third);
         int expected = 7;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class MaxTest {
         int third = 9;
         int result = Max.max(first, second, third);
         int expected = 11;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -69,7 +70,7 @@ public class MaxTest {
         int fourth = 9;
         int result = Max.max(first, second, third, fourth);
         int expected = 11;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
     @Test
@@ -80,7 +81,7 @@ public class MaxTest {
         int fourth = 3;
         int result = Max.max(first, second, third, fourth);
         int expected = 5;
-        Assert.assertEquals(result, expected);
+        assertEquals(result, expected);
     }
 
 }
