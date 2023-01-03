@@ -5,26 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        items.add(item);
+        size++;
         return item;
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return items;
     }
 
     public Item[] findByName(String key) {
         Item[] result = new Item[size];
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (key.equals(items[i].getName())) {
-                result[count++] = items[i];
+            if (key.equals(items.get(i).getName())) {
+                result[count++] = items.get(i);
             }
         }
         return Arrays.copyOf(result, count);
@@ -32,11 +33,13 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+        int index = 0;
+        for (Item item : items) {
+            if (item.getId() == id) {
                 rsl = index;
                 break;
             }
+            index++;
         }
         return rsl;
     }
@@ -45,7 +48,7 @@ public class Tracker {
         /* Находим индекс */
         int index = indexOf(id);
         /* Если индекс найден возвращаем item, иначе null */
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     public boolean replace(int id, Item item) {
@@ -53,7 +56,7 @@ public class Tracker {
         boolean replaced = index != -1;
         if (replaced) {
             item.setId(id);
-            items[index] = item;
+            items.set(index, item);
         }
         return replaced;
     }
@@ -62,8 +65,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean deleted = index != -1;
         if (deleted) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
+            items.remove(index);
             size--;
         }
         return deleted;

@@ -20,7 +20,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
@@ -39,7 +39,6 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
-
 
     @Test
     public void whenDeleteItem() {
@@ -167,11 +166,12 @@ public class StartUITest {
                         + "=== Exit Program ===" + ln
         ));
     }
+
     @Test
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"322","0"}
+                new String[]{"322", "0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
@@ -180,12 +180,12 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu:" + ln
-                        + "0. Exit" + ln
-                        + "Wrong input, you can select: 0 .. 0" + ln
-                        + "Menu:" + ln
-                        + "0. Exit" + ln
-                        + "=== Exit Program ===" + ln
+                        "Menu:" + ln
+                                + "0. Exit" + ln
+                                + "Wrong input, you can select: 0 .. 0" + ln
+                                + "Menu:" + ln
+                                + "0. Exit" + ln
+                                + "=== Exit Program ===" + ln
                 )
         );
     }
