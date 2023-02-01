@@ -10,26 +10,32 @@ public class BankService {
 
     public void addUser(User user) {
         ArrayList<Account> accountsByUser = new ArrayList<>();
-        users.put(user, accountsByUser);
+        users.putIfAbsent(user, accountsByUser);
     }
 
     public boolean deleteUser(String passport) {
-        if (users.remove(findByPassport(passport)) == null) {
-            return false;
+        User userByPassport = findByPassport(passport);
+        if (userByPassport != null) {
+            users.remove(userByPassport);
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (!users.get(user).contains(account) || users.get(user) == null) {
-            users.get(user).add(account);
+        User userByPassport = findByPassport(passport);
+        if (userByPassport != null) {
+            List<Account> accountsList = users.get(userByPassport);
+            if (!accountsList.contains(account)) {
+                accountsList.add(account);
+            }
         }
+
     }
 
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
-            if (user.getPassport() == passport) {
+            if (user.getPassport().equals(passport)) {
                 return user;
             }
         }
@@ -38,10 +44,11 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
+        List<Account> accountList = users.get(user);
         if (user != null) {
-            for (int i = 0; i < users.get(user).size(); i++) {
-                Account account = users.get(user).get(i);
-                if (account.getRequisite() == requisite) {
+            for (int i = 0; i < accountList.size(); i++) {
+                Account account = accountList.get(i);
+                if (account.getRequisite().equals(requisite)) {
                     return account;
                 }
             }
