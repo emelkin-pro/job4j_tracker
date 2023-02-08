@@ -9,7 +9,7 @@ public class AnalyzeByMap {
         int count = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
+                sum += subject.score();
                 count++;
             }
         }
@@ -20,12 +20,10 @@ public class AnalyzeByMap {
         List<Label> col = new ArrayList<>();
         for (Pupil pupil : pupils) {
             int sum = 0;
-            int count = 0;
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
-                count++;
+                sum += subject.score();
             }
-            Label label = new Label(pupil.name(), sum / count);
+            Label label = new Label(pupil.name(), sum / pupil.subjects().size());
             col.add(label);
         }
         return col;
@@ -56,7 +54,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             int sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
+                sum += subject.score();
             }
             Label label = new Label(pupil.name(), sum);
             col.add(label);
