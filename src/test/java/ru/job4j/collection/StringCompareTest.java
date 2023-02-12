@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringCompareTest {
@@ -49,6 +50,26 @@ public class StringCompareTest {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Patrova",
+                "Petrov"
+        );
+        assertThat(rst).isLessThan(0);
+    }
+
+    @Test
+    public void FirstCharOfLeftGreaterThanRightShouldBePositive() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "WPetrov",
+                "Patrov"
+        );
+        assertThat(rst).isGreaterThan(0);
+    }
+
+    @Test
+    public void lastCharOfLeftLessThanRightShouldBeNegative() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Patroa",
                 "Petrov"
         );
         assertThat(rst).isLessThan(0);
