@@ -22,8 +22,6 @@ class ItemAscByNameTest {
                 new Item("C")
         );
         items.sort(new ItemAscByName());
-        assertEquals(items.get(0).getName(), expected.get(0).getName());
-        assertEquals(items.get(1).getName(), expected.get(1).getName());
-        assertEquals(items.get(2).getName(), expected.get(2).getName());
+        assertEquals(items, expected);
     }
 }

@@ -13,16 +13,18 @@ class ItemDescByNameTest {
         List<Item> items = Arrays.asList(
                 new Item("A"),
                 new Item("C"),
+                new Item("C"),
+                new Item("F"),
                 new Item("B")
         );
         List<Item> expected = Arrays.asList(
+                new Item("F"),
+                new Item("C"),
                 new Item("C"),
                 new Item("B"),
                 new Item("A")
         );
         items.sort(new ItemDescByName());
-        assertEquals(items.get(0).getName(), expected.get(0).getName());
-        assertEquals(items.get(1).getName(), expected.get(1).getName());
-        assertEquals(items.get(2).getName(), expected.get(2).getName());
+        assertEquals(items, expected);
     }
 }
