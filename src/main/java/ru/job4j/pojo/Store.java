@@ -26,7 +26,5 @@ public class Store {
                 System.out.println(prods[i].getName() + " - " + prods[i].getCount());
             }
         }
-
-
     }
 }

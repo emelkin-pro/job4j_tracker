@@ -16,8 +16,11 @@ public class Matches {
                 turn = !turn;
                 count -= matches;
                 System.out.println("Количество оставшихся спичек: " + count);
-            }else {
-                System.out.println("Не верное колличество спичек, прошу выбрать от 1 до 3. Нельзя выбрать болше спичек чем есть");
+            } else {
+                System.out.println(
+                        "Не верное колличество спичек, прошу выбрать от 1 до 3. "
+                                + "Нельзя выбрать болше спичек чем есть"
+                );
             }
         }
         if (!turn) {

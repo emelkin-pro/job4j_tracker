@@ -134,7 +134,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", "1"}
         );
-        List<UserAction> actions = Arrays.asList(new ShowAction(out),new ExitAction(out));
+        List<UserAction> actions = Arrays.asList(new ShowAction(out), new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(

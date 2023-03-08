@@ -56,7 +56,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void FirstCharOfLeftGreaterThanRightShouldBePositive() {
+    public void firstCharOfLeftGreaterThanRightShouldBePositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "WPetrov",

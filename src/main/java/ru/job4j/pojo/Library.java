@@ -1,6 +1,5 @@
 package ru.job4j.pojo;
 
-
 public class Library {
     public static void main(String[] args) {
         Book book1 = new Book("Clean code", 464);
@@ -24,7 +23,8 @@ public class Library {
 
         for (Book bookFromBooks : books) {
             if ("Clean code".equals(bookFromBooks.getName())) {
-                System.out.println(bookFromBooks.getName() + " - " + bookFromBooks.getCountOfPages());
+                System.out.println(bookFromBooks.getName()
+                        + " - " + bookFromBooks.getCountOfPages());
             }
         }
 

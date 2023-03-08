@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport{
-    private int passengers ;
+public class Bus implements Transport {
+    private int passengers;
     private float fuel;
     private boolean drive = false;
 

@@ -15,7 +15,9 @@ public class VehicleUsages {
         Vehicle thirdAirplane = new Airplane("thirdAirplane");
 
         Vehicle[] vehicles = new Vehicle[]{
-                firstBus, secondBus, thirdBus, firstTrain, secondTrain, thirdTrain, firstAirplane, secondAirplane, thirdAirplane
+                firstBus, secondBus, thirdBus,
+                firstTrain, secondTrain, thirdTrain,
+                firstAirplane, secondAirplane, thirdAirplane
         };
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);

@@ -21,13 +21,14 @@ public class ConvertMatrix2ListTest {
         List<Integer> result = list.toList(input);
         assertThat(result).containsAll(expect);
     }
+
     @Test
     public void when3on3ArrayThenList4() {
         ConvertMatrix2List list = new ConvertMatrix2List();
         int[][] input = {
-                {1, 2 , 6},
-                {3, 4 , 4},
-                {3, 4 , 0}
+                {1, 2, 6},
+                {3, 4, 4},
+                {3, 4, 0}
         };
         List<Integer> expect = Arrays.asList(
                 1, 2, 6, 3, 4, 4, 3, 4, 0

@@ -9,6 +9,8 @@ public class College {
         student.setGroup("БИ211");
         student.setDateOfAdmission(new Date());
 
-        System.out.println("Студент: " + student.getFio() + " Зачислен в группу " + student.getGroup() + ", дата зачисления: " + student.getDateOfAdmission());
+        System.out.println("Студент: " + student.getFio()
+                + " Зачислен в группу " + student.getGroup()
+                + ", дата зачисления: " + student.getDateOfAdmission());
     }
 }
