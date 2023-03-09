@@ -58,7 +58,7 @@ public class BankService {
      * Находит клиента по паспортному номеру
      *
      * @param passport паспортный номер клиента
-     * @return клиента, если находит, иначе null
+     * @return возвращает клиента, если находит, иначе null
      */
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
