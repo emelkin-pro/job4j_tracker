@@ -11,8 +11,14 @@ public class Departments {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
             String start = "";
+
             for (String el : value.split("/")) {
-                /* tmp.add start + "/" + el */
+                if (start.equals("")) {
+                    start += el;
+                } else {
+                    start += "/" + el;
+                }
+                tmp.add(start);
             }
         }
         return new ArrayList<>(tmp);
