@@ -22,6 +22,5 @@ public class AttachmentSort {
                 return o1.getName().compareTo(o2.getName());
             }
         };
-        // Здесь создайте компаратор на основании анонимного класса.
     }
 }
