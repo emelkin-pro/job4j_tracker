@@ -12,6 +12,7 @@ public class FunctionInterfaceUsage {
         Set<String> strings = sup.get();
         for (String s : strings) {
             System.out.println(s);
+
         }
     }
 }
