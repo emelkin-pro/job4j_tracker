@@ -13,6 +13,7 @@ public class SearchFolder {
         for (Folder f : list) {
             if (pred.test(f)) {
                 rsl.add(f);
+
             }
         }
         return rsl;
