@@ -9,7 +9,6 @@ public class Folder {
     public Folder(String name, int size) {
         this.name = name;
         this.size = size;
-
     }
 
     public String getName() {
