@@ -33,7 +33,6 @@ public class FunctionalInterfaces {
             con.accept(s);
             func.apply(s);
             System.out.println(s.toUpperCase());
-
         }
     }
 }
