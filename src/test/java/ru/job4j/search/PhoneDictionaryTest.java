@@ -26,4 +26,17 @@ public class PhoneDictionaryTest {
         ArrayList<Person> persons = phones.find("kek");
         assertThat(persons.isEmpty());
     }
+
+    @Test
+    public void whenFindByPhone() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        phones.add(
+                new Person("Oleg", "Lolkek", "322", "kekland")
+        );
+        ArrayList<Person> persons = phones.find("322");
+        assertThat(persons.get(0).getPhone()).isEqualTo("322");
+    }
 }
