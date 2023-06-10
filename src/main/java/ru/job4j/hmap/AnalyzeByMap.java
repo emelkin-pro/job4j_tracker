@@ -23,7 +23,7 @@ public class AnalyzeByMap {
             for (Subject subject : pupil.subjects()) {
                 sum += subject.score();
             }
-            Label label = new Label(pupil.name(), sum / pupil.subjects().size());
+            Label label = new Label(pupil.name(), (double) sum / pupil.subjects().size());
             col.add(label);
         }
         return col;
@@ -35,13 +35,12 @@ public class AnalyzeByMap {
         int count = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                mapLabel.put(subject.name(), mapLabel.getOrDefault(subject.name(), 0)
-                        + subject.score());
+                mapLabel.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + subject.score());
             }
             count++;
         }
         for (String key : mapLabel.keySet()) {
-            labels.add(new Label(key, mapLabel.get(key) / count));
+            labels.add(new Label(key, (double) mapLabel.get(key) / count));
         }
         return labels;
     }
@@ -65,8 +64,7 @@ public class AnalyzeByMap {
         Map<String, Integer> mapLabel = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                mapLabel.put(subject.name(), mapLabel.getOrDefault(subject.name(), 0)
-                        + subject.score());
+                mapLabel.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + subject.score());
             }
         }
         for (String key : mapLabel.keySet()) {
