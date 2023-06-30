@@ -13,6 +13,8 @@ public class BankServiceTest {
         assertThat(bank.findByPassport("3434")).isEqualTo(user);
     }
 
+
+
     @Test
     public void deleteUserIsTrue() {
         User first = new User("3434", "Petr Arsentev");
