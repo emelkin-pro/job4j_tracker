@@ -109,7 +109,6 @@ public class BankService {
         return rsl;
     }
 
-
     public List<Account> getAccounts(User user) {
         return users.get(user);
     }

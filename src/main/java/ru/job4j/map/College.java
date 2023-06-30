@@ -7,7 +7,6 @@ public class College {
 
     private final Map<Student, Set<Subject>> students;
 
-
     public College(Map<Student, Set<Subject>> students) {
         this.students = students;
     }
