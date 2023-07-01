@@ -77,15 +77,16 @@ public class BankService {
      */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        return users.get(user) == null
-                ? null
-                : users.get(user)
-                .stream()
-                .filter(account -> account.getRequisite().equals(requisite))
-                .findFirst()
-                .orElse(null);
-    }
-
+        List<Account> accountList = users.get(user);
+        if (user != null) {
+            return accountList
+                    .stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
+        }
+        return null;
+        }
     /**
      * Осуществляет перевод денег между счетами клиентов.
      *
