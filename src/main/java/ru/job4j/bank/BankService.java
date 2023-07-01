@@ -8,6 +8,7 @@ import java.util.ArrayList;
 /**
  * Класс описывает логику работы с клиентами банка и банковскими считами.
  */
+
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
@@ -16,6 +17,7 @@ public class BankService {
      *
      * @param user клиент банка, который добавляется в список.
      */
+
     public void addUser(User user) {
         ArrayList<Account> accountsByUser = new ArrayList<>();
         users.putIfAbsent(user, accountsByUser);
@@ -28,6 +30,7 @@ public class BankService {
      *                 по которому можно идентифицировать клиента.
      * @return true , если удалили клиента, иначе false.
      */
+
     public boolean deleteUser(String passport) {
         User userByPassport = findByPassport(passport);
         if (userByPassport != null) {
@@ -43,6 +46,7 @@ public class BankService {
      * @param passport это паспортный номер клиента
      * @param account  это банковский счет, который будет привязан к клиенту
      */
+
     public void addAccount(String passport, Account account) {
         User userByPassport = findByPassport(passport);
         if (userByPassport != null) {
@@ -60,6 +64,7 @@ public class BankService {
      * @param passport паспортный номер клиента
      * @return возвращает клиента, если находит, иначе null
      */
+
     public User findByPassport(String passport) {
         return users.keySet()
                 .stream()
@@ -75,6 +80,7 @@ public class BankService {
      * @param requisite реквизиты банковского счета
      * @return при нахождение возвращает банковский счет, иначе null
      */
+
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         List<Account> accountList = users.get(user);
@@ -87,6 +93,7 @@ public class BankService {
         }
         return null;
         }
+
     /**
      * Осуществляет перевод денег между счетами клиентов.
      *
@@ -97,6 +104,7 @@ public class BankService {
      * @param amount        сумма перевода
      * @return возвращает true, если перевод был успешен, иначе false
      */
+
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
