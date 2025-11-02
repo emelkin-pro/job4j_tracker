@@ -154,6 +154,7 @@ public class SqlTracker implements Store {
             throw new RuntimeException(e);
         }
     }
+
     public static void main(String[] args) {
         Store sqlTracker = new SqlTracker();
         System.out.println(sqlTracker.findByName("kek"));
