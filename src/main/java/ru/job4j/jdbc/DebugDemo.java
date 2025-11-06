@@ -23,7 +23,8 @@ public class DebugDemo {
     public void createTable() {
         try (Statement statement = con.createStatement()) {
             statement.execute(
-                    "CREATE TABLE IF NOT EXISTS cities(id SERIAL PRIMARY KEY, name TEXT, population INT);"
+                    "CREATE TABLE IF NOT EXISTS cities(id SERIAL PRIMARY KEY"
+                            + ", name TEXT, population INT);"
             );
         } catch (Exception e) {
             e.printStackTrace();
