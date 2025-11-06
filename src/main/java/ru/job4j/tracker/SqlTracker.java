@@ -157,6 +157,6 @@ public class SqlTracker implements Store {
 
     public static void main(String[] args) {
         Store sqlTracker = new SqlTracker();
-        System.out.println(sqlTracker.findByName("kek"));
+        System.out.println(sqlTracker.findByName("kek "));
     }
 }
