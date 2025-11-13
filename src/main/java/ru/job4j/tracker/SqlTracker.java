@@ -33,6 +33,17 @@ public class SqlTracker implements Store {
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
+        try (PreparedStatement statement = connection.prepareStatement(
+                "CREATE TABLE IF NOT EXISTS items (\n"
+                        + "  id SERIAL PRIMARY KEY,\n"
+                        + "  name TEXT,\n"
+                        + "  created TIMESTAMP\n"
+                        + ");",
+                Statement.RETURN_GENERATED_KEYS)) {
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -47,14 +58,21 @@ public class SqlTracker implements Store {
         long millis = System.currentTimeMillis();
         Timestamp timestamp = new Timestamp(millis);
         try (PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO items(name, created) VALUES (?, ?)",
+                "INSERT INTO items(name, created) VALUES (?, ?);",
                 Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, timestamp);
             statement.execute();
+            try (ResultSet generatedID = statement.getGeneratedKeys()) {
+                if (generatedID.next()) {
+                    item.setId(generatedID.getInt(1));
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+
         return item;
     }
 
@@ -136,7 +154,7 @@ public class SqlTracker implements Store {
 
     @Override
     public Item findById(int id) {
-        Item item = new Item();
+        Item item = null;
         try (PreparedStatement statement = connection.prepareStatement(
                 "SELECT * FROM items WHERE id = ? ",
                 Statement.RETURN_GENERATED_KEYS)) {
@@ -144,6 +162,7 @@ public class SqlTracker implements Store {
             statement.execute();
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
+                    System.out.println(resultSet.getString("name"));
                     item = new Item(resultSet.getInt("id"), resultSet.getString("name"));
                 }
             } catch (SQLException e) {
