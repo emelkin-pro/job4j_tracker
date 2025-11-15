@@ -58,4 +58,49 @@ public class SqlTrackerTest {
         tracker.add(item);
         assertThat(tracker.findById(item.getId())).isEqualTo(item);
     }
+
+    @Test
+    public void whenSaveItemAndFindByNameThenMustBeTheSame() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        List<Item> rsl =  List.of(item);
+        tracker.add(item);
+        assertThat(tracker.findByName(item.getName())).isEqualTo(rsl);
+    }
+
+    @Test
+    public void whenSaveItemsAndFindAllThenMustBeTheSame() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item1");
+        Item item2 = new Item("item2");
+        Item item3 = new Item("item3");
+        List<Item> rsl =  List.of(item,item2,item3);
+        tracker.add(item);
+        tracker.add(item2);
+        tracker.add(item3);
+        assertThat(tracker.findAll()).isEqualTo(rsl);
+    }
+
+    @Test
+    public void whenSaveItemAndReplaceItemFindByIDThenMustBeTheSame() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item1");
+        Item item2 = new Item("item2");
+        Item item3 = new Item("item3");
+        tracker.add(item);
+        tracker.add(item2);
+        tracker.replace(item2.getId(),item3);
+        assertThat(tracker.findById(item3.getId())).isEqualTo(item3);
+    }
+
+    @Test
+    public void whenSaveItemAndDeleteThenNotFound() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        tracker.add(item);
+        int id = item.getId();
+        assertThat(tracker.findById(item.getId())).isNotNull();
+        tracker.delete(id);
+        assertThat(tracker.findById(id)).isNull();
+    }
 }
