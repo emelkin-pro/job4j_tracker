@@ -72,7 +72,6 @@ public class SqlTracker implements Store {
             throw new RuntimeException(e);
         }
 
-
         return item;
     }
 
