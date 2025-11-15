@@ -24,7 +24,8 @@ public class SqlTrackerTest {
 
     @BeforeAll
     public static void initConnection() {
-        try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("db/liquibase_test.properties")) {
+        try (InputStream in = SqlTracker.class.getClassLoader()
+                .getResourceAsStream("db/liquibase_test.properties")) {
             Properties config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
@@ -63,7 +64,7 @@ public class SqlTrackerTest {
     public void whenSaveItemAndFindByNameThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
-        List<Item> rsl =  List.of(item);
+        List<Item> rsl = List.of(item);
         tracker.add(item);
         assertThat(tracker.findByName(item.getName())).isEqualTo(rsl);
     }
@@ -74,7 +75,7 @@ public class SqlTrackerTest {
         Item item = new Item("item1");
         Item item2 = new Item("item2");
         Item item3 = new Item("item3");
-        List<Item> rsl =  List.of(item,item2,item3);
+        List<Item> rsl = List.of(item, item2, item3);
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
@@ -89,7 +90,7 @@ public class SqlTrackerTest {
         Item item3 = new Item("item3");
         tracker.add(item);
         tracker.add(item2);
-        tracker.replace(item2.getId(),item3);
+        tracker.replace(item2.getId(), item3);
         assertThat(tracker.findById(item3.getId())).isEqualTo(item3);
     }
 
