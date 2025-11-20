@@ -1,4 +1,5 @@
 package ru.job4j.tracker.store;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class SqlTrackerTest {
