@@ -68,6 +68,7 @@ public class SqlTrackerTest {
         tracker.add(item);
         assertThat(tracker.findByName(item.getName())).isEqualTo(rsl);
     }
+
     @Test
     public void whenSaveItemsAndFindAllThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
