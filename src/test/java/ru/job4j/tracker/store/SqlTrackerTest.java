@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
 import static org.assertj.core.api.Assertions.*;
 
 public class SqlTrackerTest {
