@@ -1,5 +1,4 @@
 package ru.job4j.tracker.store;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
