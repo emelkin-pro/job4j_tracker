@@ -104,4 +104,23 @@ public class SqlTrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id)).isNull();
     }
+
+    @Test
+    public void whenSaveItemAndDeleteThenNotDeletedAllItems() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        Item item2 = new Item("item2");
+        Item item3 = new Item("item3");
+        tracker.add(item);
+        tracker.add(item2);
+        tracker.add(item3);
+        int id1 = item.getId();
+        int id2 = item2.getId();
+        int id3 = item3.getId();
+
+        tracker.delete(id1);
+        assertThat(tracker.findById(id1)).isNull();
+        assertThat(tracker.findById(id2)).isNotNull();
+        assertThat(tracker.findById(id3)).isNotNull();
+    }
 }
